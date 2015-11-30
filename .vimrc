@@ -31,3 +31,17 @@ map <C-n> :NERDTreeToggle<CR>
 " Airline Config (Plugin)
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'laederon'
+
+" NerdTree colors
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+  exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+  exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('jade', 'red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('html', 'red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('md', 'magenta', 'none', 'blue', '#151515')
+call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('less', 'brown', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('css', 'brown', 'none', 'cyan', '#151515')
+call NERDTreeHighlightFile('js', 'darkgreen', 'none', 'darkgreen', '#151515')
