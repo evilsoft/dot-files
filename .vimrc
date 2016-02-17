@@ -12,9 +12,12 @@ set fdm=indent
 set shiftwidth=2
 set tabstop=2
 set laststatus=2
+set backspace=eol,indent,start
 
 set visualbell
 set t_vb=
+
+set background=light
 
 set mouse=a
 set pastetoggle=<F11>
@@ -31,6 +34,7 @@ map <C-n> :NERDTreeToggle<CR>
 " Airline Config (Plugin)
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'laederon'
+let g:jsx_ext_required = 0
 
 " NerdTree colors
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -45,3 +49,9 @@ call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
 call NERDTreeHighlightFile('less', 'brown', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('css', 'brown', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('js', 'darkgreen', 'none', 'darkgreen', '#151515')
+call NERDTreeHighlightFile('jsx', 'darkgreen', 'none', 'darkgreen', '#151515')
+
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
