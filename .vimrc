@@ -19,14 +19,36 @@ set t_vb=
 
 set background=light
 
-set mouse=a
 set pastetoggle=<F11>
 
 set wildmenu
 set wildmode=list:longest,full
 
+
 " Use Pathogen for Plugins
 execute pathogen#infect()
+
+" https://github.com/scrooloose/nerdtree
+" https://github.com/pangloss/vim-javascript
+" https://github.com/ryanoasis/nerd-fonts
+" git clone https://github.com/tomtom/tlib_vim.git
+" git clone https://github.com/MarcWeber/vim-addon-mw-utils.git
+" git clone https://github.com/garbas/vim-snipmate.git
+" git clone https://github.com/honza/vim-snippets.git
+" git clone https://github.com/vim-airline/vim-airline
+" git clone https://github.com/vim-airline/vim-airline-themes
+" git clone git@github.com:ryanoasis/vim-devicons.git
+" git clone git@github.com:jiangmiao/auto-pairs.git
+" git clone git@github.com:tpope/vim-commentary.git
+" git clone git@github.com:tpope/vim-fugitive.git
+" git clone git@github.com:digitaltoad/vim-pug.git
+" git clone git@github.com:statianzo/vim-jade.git
+" git clone git@github.com:jelera/vim-javascript-syntax.git
+" git clone git@github.com:elzr/vim-json.git
+" git clone git@github.com:mxw/vim-jsx.git
+" git clone git@github.com:groenewege/vim-less.git
+" git clone git@github.com:xolox/vim-misc.git
+" git clone git@github.com:xolox/vim-notes.git
 
 " NERDTree Key Binding (Plugin)
 map <C-n> :NERDTreeToggle<CR>
