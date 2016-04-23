@@ -1,0 +1,53 @@
+Xft.autohint:   0
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.hinting:    true
+Xft.hintstyle:  hintslight
+Xft.lcdfilter:  lcddefault
+
+dzen2.font: Jaldi:size=11
+
+UXTerm*faceName: Meslo LG L for Powerline
+UXTerm*faceSize: 9
+
+UXTerm*dynamicColors: true
+UXTerm*utf8:          2
+UXTerm*termName:      xterm-256color
+
+#define base00 #1d1f21
+#define base01 #282a2e
+#define base02 #373b41
+#define base03 #969896
+#define base04 #b4b7b4
+#define base05 #c5c8c6
+#define base06 #e0e0e0
+#define base07 #ffffff
+#define base08 #CC342B
+#define base09 #F96A38
+#define base0A #FBA922
+#define base0B #198844
+#define base0C #3971ED
+#define base0D #3971ED
+#define base0E #A36AC7
+#define base0F #3971ED
+
+UXTerm*foreground:   base05
+UXTerm*background:   black
+UXTerm*cursorColor:  base05
+UXTerm*color0:       base00
+UXTerm*color1:       base08
+UXTerm*color2:       base0B
+UXTerm*color3:       base0A
+UXTerm*color4:       base0D
+UXTerm*color5:       base0E
+UXTerm*color6:       base0C
+UXTerm*color7:       base05
+UXTerm*color8:       base03
+UXTerm*color9:       base08
+UXTerm*color10:      base0B
+UXTerm*color11:      base0A
+UXTerm*color12:      base0D
+UXTerm*color13:      base0E
+UXTerm*color14:      base0C
+UXTerm*color15:      base07
