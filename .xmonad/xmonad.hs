@@ -27,18 +27,20 @@ colorLight    = "#BDDFB3"
 colorSat      = "#009D57"
 colorSatDark  = "#004727"
 colorSatLight = "#00F285"
+colorSatWash  = "#55F2AB"
+colorSatComp  = "#9E0047"
 
 main = do
   desktopBar  <- spawnPipe evilDzenDesktop
   statusBar   <- spawnPipe evilDzenStatus
   centerBar   <- spawnPipe evilDzenCenter
   xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig
-      { modMask            = mod4Mask
-      , terminal           = "uxterm"
-      , borderWidth        = 0
-      , layoutHook = evilLayoutHook
-      , manageHook = manageDocks <+> evilManageHook <+> manageHook defaultConfig
-      , logHook    = evilLogHook desktopBar >> (evilFadeLogHook)
+      { modMask     = mod4Mask
+      , terminal    = "uxterm"
+      , borderWidth = 0
+      , layoutHook  = evilLayoutHook
+      , manageHook  = manageDocks <+> evilManageHook <+> manageHook defaultConfig
+      , logHook     = evilLogHook desktopBar >> (evilFadeLogHook)
       }
       `additionalKeysP` evilKeys
 
@@ -69,15 +71,14 @@ evilDzenStyle         = " -h '25' -e 'button2=' -dock"
 
 evilRofi = "rofi -show run -font 'Jaldi 12' -bg '" ++ colorSat ++ "' -fg '" ++ colorSatDark ++ "' -hlbg '" ++ colorSatLight ++ "' -hlfg '" ++ colorSatDark ++ "' -opacity 90 -width 400 -lines 5"
 
-evilDzenPP  = dzenPP
-  { ppCurrent = dzenColor colorWhite colorSatLight . wrap "   " "   "
-  , ppHidden  = dzenColor colorWhite "" . wrap "   " "   "
-  , ppHiddenNoWindows = dzenColor colorLight "" . wrap "   " "   "
-  , ppVisible = dzenColor "#ffffff" "#543948" . wrap "   " "   "
-  , ppUrgent  = dzenColor "#ff0000" "" . wrap "   " "   "
-  , ppSep     = "     "
-  , ppLayout  = dzenColor colorWhite  "" . wrap "• " " •"
-  , ppTitle  = dzenColor colorSat colorSat
+evilDzenPP = dzenPP
+  { ppCurrent         = dzenColor colorWhite colorSatComp . wrap "   " "   "
+  , ppHidden          = dzenColor colorWhite "" . wrap "   " "   "
+  , ppHiddenNoWindows = dzenColor colorSatWash "" . wrap "   " "   "
+  , ppVisible         = dzenColor colorWhite colorSatLight. wrap "   " "   "
+  , ppSep             = "     "
+  , ppLayout          = dzenColor colorWhite  "" . wrap "• " " •"
+  , ppTitle           = dzenColor colorSat colorSat
   }
 
 evilKeys = [ ("M-b"      , sendMessage ToggleStruts         )
@@ -89,11 +90,12 @@ evilKeys = [ ("M-b"      , sendMessage ToggleStruts         )
   , ("M-<Left>"   , prevWS                                   )
   , ("M-S-<Right>", shiftToNext                              )
   , ("M-S-<Left>" , shiftToPrev                              )
-  , ("<XF86AudioLowerVolume>" , spawn "pactl set-sink-volume 0 -10%")
-  , ("<XF86AudioRaiseVolume>" , spawn "pactl set-sink-volume 0 +10%")
-  , ("<XF86AudioMute>" , spawn "pactl set-sink-mute 0 toggle")
+  , ("<Print>"    , spawn "scrot '/home/evil/Pictures/shots/%F-%I:%M:%S-%p.png'")
   , ("<XF86AudioPlay>" , spawn "cmus-remote -u")
   , ("<XF86AudioStop>" , spawn "cmus-remote -s")
   , ("<XF86AudioNext>" , spawn "cmus-remote -n")
   , ("<XF86AudioPrev>" , spawn "cmus-remote -r")
+  , ("<XF86AudioMute>" , spawn "pactl set-sink-mute 0 toggle")
+  , ("<XF86AudioLowerVolume>" , spawn "pactl set-sink-volume 0 -10%")
+  , ("<XF86AudioRaiseVolume>" , spawn "pactl set-sink-volume 0 +10%")
   ]
