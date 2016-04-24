@@ -1,0 +1,7 @@
+background yes
+out_to_console yes
+out_to_x no
+update_interval 1
+
+TEXT
+^fg(\#FFFFFF)^i(/home/evil/.xmonad/dzen2/cpu.xbm) ^fg(\#BDDFB3)${cpu}%  ^fg(\#FFFFFF)^i(/home/evil/.xmonad/dzen2/mem.xbm) ^fg(\#BDDFB3)${memperc}%  ^fg(\#FFFFFF)^i(/home/evil/.xmonad/dzen2/battery.xbm) ^fg(\#BDDFB3)${battery_percent BAT1}%  ^fg(\#FFFFFF)^i(/home/evil/.xmonad/dzen2/wifi.xbm) ^fg(\#BDDFB3)${wireless_link_qual wlp2s0}%
