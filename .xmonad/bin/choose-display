@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if xrandr -q | grep -q 'HDMI1 connected'; then
+  xrandr --output LVDS1 --mode 1366x768 --primary --auto --output HDMI1 --mode 1920x1080 --right-of LVDS1 --auto
+else
+  xrandr --output LVDS1 --mode 1366x768 --primary --auto
+fi

@@ -1,0 +1,23 @@
+# Shadow
+shadow = true;
+no-dnd-shadow = true;
+no-dock-shadow = false;
+clear-shadow = true;
+shadow-radius = 5.0;
+shadow-offset-x = -7.0;
+shadow-offset-y = -7.0;
+shadow-opacity = 20;
+shadow-red = 0.0;
+shadow-green = 0.0;
+shadow-blue = 0.0;
+shadow-exclude = [ "name = 'Notification'", "class_g ?= 'Notify-osd'", "n:s:dzen" ];
+shadow-ignore-shaped = false;
+
+detect-rounded-corners = false;
+blur-background-fixed = true;
+inactive-opacity-override = false;
+mark-wmwin-focused = false;
+fading = true;
+fade-delta = 10;
+fade-in-step = 0.05;
+fade-out-step = 0.15;

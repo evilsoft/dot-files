@@ -1,6 +1,8 @@
 xrdb -merge ~/.Xresources
 xscreensaver -no-splash &
-compton -Ccf -o 0.8 -i 0.5 &
+/home/evil/bin/choose-display
+
+compton --config ~/.comptonrc -b &
 
 xsetroot -cursor_name left_ptr \
   && setxkbmap -option ctrl:nocaps \

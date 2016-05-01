@@ -35,14 +35,14 @@ main = do
   statusBar   <- spawnPipe evilDzenStatus
   centerBar   <- spawnPipe evilDzenCenter
   xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig
-      { modMask     = mod4Mask
-      , terminal    = "uxterm"
-      , borderWidth = 0
-      , layoutHook  = evilLayoutHook
-      , manageHook  = manageDocks <+> evilManageHook <+> manageHook defaultConfig
-      , logHook     = evilLogHook desktopBar >> (evilFadeLogHook)
-      }
-      `additionalKeysP` evilKeys
+    { modMask     = mod4Mask
+    , terminal    = "uxterm"
+    , borderWidth = 0
+    , layoutHook  = evilLayoutHook
+    , manageHook  = manageDocks <+> evilManageHook <+> manageHook defaultConfig
+    , logHook     = evilLogHook desktopBar >> (evilFadeLogHook)
+    }
+    `additionalKeysP` evilKeys
 
 evilLayoutHook = avoidStruts $ smartBorders ( tiled ||| mtiled ||| grid ||| full )
   where
@@ -54,6 +54,7 @@ evilLayoutHook = avoidStruts $ smartBorders ( tiled ||| mtiled ||| grid ||| full
 evilManageHook = composeAll
   [ isFullscreen  --> doFullFloat
   , isDialog      --> doFloat
+  , className =? "webdev-multitool" --> doShift "3"
   ]
 
 evilLogHook h = dynamicLogWithPP $ evilDzenPP { ppOutput = hPutStrLn h }
@@ -69,7 +70,7 @@ evilDzenColors        = " -fg '" ++ colorLight ++ "' -bg '" ++ colorSat ++ "'"
 evilDzenCenterColors  = " -fg '" ++ colorSatDark ++ "' -bg '" ++ colorWhite ++ "'"
 evilDzenStyle         = " -h '25' -e 'button2=' -dock"
 
-evilRofi = "rofi -show run -font 'Jaldi 12' -bg '" ++ colorSat ++ "' -fg '" ++ colorSatDark ++ "' -hlbg '" ++ colorSatLight ++ "' -hlfg '" ++ colorSatDark ++ "' -opacity 90 -width 400 -lines 5"
+evilRofi = "rofi -show run"
 
 evilDzenPP = dzenPP
   { ppCurrent         = dzenColor colorWhite colorSatComp . wrap "   " "   "
@@ -95,7 +96,7 @@ evilKeys = [ ("M-b"      , sendMessage ToggleStruts         )
   , ("<XF86AudioStop>" , spawn "cmus-remote -s")
   , ("<XF86AudioNext>" , spawn "cmus-remote -n")
   , ("<XF86AudioPrev>" , spawn "cmus-remote -r")
-  , ("<XF86AudioMute>" , spawn "pactl set-sink-mute 0 toggle")
-  , ("<XF86AudioLowerVolume>" , spawn "pactl set-sink-volume 0 -10%")
-  , ("<XF86AudioRaiseVolume>" , spawn "pactl set-sink-volume 0 +10%")
+  , ("<XF86AudioMute>" , spawn "amixer set Master toggle && amixer set Headphone toggle")
+  , ("<XF86AudioLowerVolume>" , spawn "amixer set Master on && amixer set Master 5%-")
+  , ("<XF86AudioRaiseVolume>" , spawn "amixer set Master on && amixer set Master 5%+")
   ]
