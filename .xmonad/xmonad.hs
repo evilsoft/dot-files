@@ -9,6 +9,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.FadeInactive
+import XMonad.Hooks.EwmhDesktops
 
 import XMonad.Layout.Named
 import XMonad.Layout.NoBorders
@@ -34,13 +35,14 @@ main = do
   desktopBar  <- spawnPipe evilDzenDesktop
   statusBar   <- spawnPipe evilDzenStatus
   centerBar   <- spawnPipe evilDzenCenter
-  xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig
+  xmonad $ withUrgencyHook NoUrgencyHook $ ewmh defaultConfig
     { modMask     = mod4Mask
     , terminal    = "uxterm"
     , borderWidth = 0
     , layoutHook  = evilLayoutHook
     , manageHook  = manageDocks <+> evilManageHook <+> manageHook defaultConfig
     , logHook     = evilLogHook desktopBar >> (evilFadeLogHook)
+    , handleEventHook = handleEventHook defaultConfig <+> XMonad.Hooks.EwmhDesktops.fullscreenEventHook
     }
     `additionalKeysP` evilKeys
 
