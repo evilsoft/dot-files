@@ -14,11 +14,14 @@ set tabstop=2
 set laststatus=2
 set backspace=eol,indent,start
 
+set clipboard=unamedplus
+
 set visualbell
 set t_vb=
 
 set background=light
 
+set mouse=a
 set pastetoggle=<F11>
 
 set wildmenu
@@ -56,6 +59,7 @@ map <C-n> :NERDTreeToggle<CR>
 " Airline Config (Plugin)
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'laederon'
+
 let g:jsx_ext_required = 0
 
 " NerdTree colors
@@ -65,6 +69,7 @@ function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
 endfunction
 
 call NERDTreeHighlightFile('jade', 'red', 'none', 'red', '#151515')
+call NERDTreeHighlightFile('pug', 'red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('html', 'red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('md', 'magenta', 'none', 'blue', '#151515')
 call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
@@ -72,8 +77,17 @@ call NERDTreeHighlightFile('less', 'brown', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('css', 'brown', 'none', 'cyan', '#151515')
 call NERDTreeHighlightFile('js', 'darkgreen', 'none', 'darkgreen', '#151515')
 call NERDTreeHighlightFile('jsx', 'darkgreen', 'none', 'darkgreen', '#151515')
+call NERDTreeHighlightFile('purs', 'darkgreen', 'none', 'darkgreen', '#151515')
+call NERDTreeHighlightFile('elm', 'darkgreen', 'none', 'darkgreen', '#151515')
 
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
+
+nnoremap H ^
+nnoremap J 5j
+nnoremap K 5k
+nnoremap L g_
+
+autocmd Filetype elm setlocal ts=2 sw=2
