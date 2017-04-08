@@ -1,4 +1,5 @@
 import XMonad
+import Data.Default
 
 import XMonad.Actions.CycleWindows
 import XMonad.Actions.CycleWS
@@ -35,14 +36,14 @@ main = do
   desktopBar  <- spawnPipe evilDzenDesktop
   statusBar   <- spawnPipe evilDzenStatus
   centerBar   <- spawnPipe evilDzenCenter
-  xmonad $ withUrgencyHook NoUrgencyHook $ ewmh defaultConfig
+  xmonad $ withUrgencyHook NoUrgencyHook $ ewmh $ docks def
     { modMask     = mod4Mask
     , terminal    = "uxterm"
     , borderWidth = 0
     , layoutHook  = evilLayoutHook
-    , manageHook  = manageDocks <+> evilManageHook <+> manageHook defaultConfig
+    , manageHook  = manageDocks <+> evilManageHook <+> manageHook def
     , logHook     = evilLogHook desktopBar >> (evilFadeLogHook)
-    , handleEventHook = handleEventHook defaultConfig <+> XMonad.Hooks.EwmhDesktops.fullscreenEventHook
+    , handleEventHook = handleEventHook def <+> XMonad.Hooks.EwmhDesktops.fullscreenEventHook
     }
     `additionalKeysP` evilKeys
 
@@ -56,7 +57,6 @@ evilLayoutHook = avoidStruts $ smartBorders ( tiled ||| mtiled ||| grid ||| full
 evilManageHook = composeAll
   [ isFullscreen  --> doFullFloat
   , isDialog      --> doFloat
-  , className =? "webdev-multitool" --> doShift "3"
   ]
 
 evilLogHook h = dynamicLogWithPP $ evilDzenPP { ppOutput = hPutStrLn h }
@@ -101,4 +101,6 @@ evilKeys = [ ("M-b"      , sendMessage ToggleStruts         )
   , ("<XF86AudioMute>" , spawn "amixer set Master toggle && amixer set Headphone toggle")
   , ("<XF86AudioLowerVolume>" , spawn "amixer set Master on && amixer set Master 5%-")
   , ("<XF86AudioRaiseVolume>" , spawn "amixer set Master on && amixer set Master 5%+")
+  , ("<XF86MonBrightnessUp>" , spawn "xbacklight -inc 20")
+  , ("<XF86MonBrightnessDown>" , spawn "xbacklight -dec 20")
   ]

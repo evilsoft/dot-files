@@ -27,7 +27,6 @@ set pastetoggle=<F11>
 set wildmenu
 set wildmode=list:longest,full
 
-
 " Use Pathogen for Plugins
 execute pathogen#infect()
 
@@ -79,6 +78,8 @@ call NERDTreeHighlightFile('js', 'darkgreen', 'none', 'darkgreen', '#151515')
 call NERDTreeHighlightFile('jsx', 'darkgreen', 'none', 'darkgreen', '#151515')
 call NERDTreeHighlightFile('purs', 'darkgreen', 'none', 'darkgreen', '#151515')
 call NERDTreeHighlightFile('elm', 'darkgreen', 'none', 'darkgreen', '#151515')
+call NERDTreeHighlightFile('Dockerfile', 'yellow', 'none', 'yellow', '#151515')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
 
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
