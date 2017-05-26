@@ -21,6 +21,9 @@ set t_vb=
 
 set background=light
 
+hi clear SpellBad
+hi SpellBad term=underline cterm=underline ctermfg=white ctermbg=red
+
 set mouse=a
 set pastetoggle=<F11>
 

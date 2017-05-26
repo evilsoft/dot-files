@@ -2,17 +2,15 @@
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="evil"
-
 DISABLE_AUTO_UPDATE="true"
 
-plugins=(git npm ruby  git-extras node jsontools gem encode64 colored-man)
+plugins=(git git-extras node yarn npm jsontools vi-mode history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
 export LANG=en_US.UTF-8
 export EDITOR='vim'
 
-alias clr='clear'
 alias ll='ls --group-directories-first -hl'
 alias la='ll -a'
 
