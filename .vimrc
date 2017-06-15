@@ -4,6 +4,8 @@ syntax on
 
 filetype indent plugin on
 
+let mapleader=';'
+
 set expandtab
 set autoindent
 set number
@@ -93,5 +95,11 @@ nnoremap H ^
 nnoremap J 5j
 nnoremap K 5k
 nnoremap L g_
+
+nnoremap <leader>q :q!<CR>
+nnoremap <leader>z ZZ
+nnoremap <leader>t :tabe<CR>
+nnoremap <leader>l gt
+nnoremap <leader>h gT
 
 autocmd Filetype elm setlocal ts=2 sw=2
