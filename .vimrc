@@ -97,8 +97,9 @@ nnoremap K 5k
 nnoremap L g_
 
 nnoremap <leader>q :q!<CR>
+nnoremap <leader>w :w<CR>
 nnoremap <leader>z ZZ
-nnoremap <leader>t :tabe<CR>
+nnoremap <leader>t :tabe<CR>:NERDTreeToggle<CR>
 nnoremap <leader>l gt
 nnoremap <leader>h gT
 
