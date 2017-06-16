@@ -91,16 +91,35 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+" line jumps
 nnoremap H ^
 nnoremap J 5j
 nnoremap K 5k
 nnoremap L g_
 
+" save/exiting
 nnoremap <leader>q :q!<CR>
-nnoremap <leader>w :w<CR>
 nnoremap <leader>z ZZ
+nnoremap <leader>w :w<CR>
+
+" tab managment
 nnoremap <leader>t :tabe<CR>:NERDTreeToggle<CR>
-nnoremap <leader>l gt
-nnoremap <leader>h gT
+nnoremap <leader>L gt
+nnoremap <leader>H gT
+
+" pane navigation
+nnoremap <leader>l <C-w>l
+nnoremap <leader>k <C-w>k
+nnoremap <leader>j <C-w>j
+nnoremap <leader>h <C-w>h
+
+" indentation
+nnoremap <leader><Tab> >>
+nnoremap <leader><S-Tab> <<
+vnoremap <leader><Tab> >
+vnoremap <leader><S-Tab> <
+
+" just silly
+map q <Nop>
 
 autocmd Filetype elm setlocal ts=2 sw=2
